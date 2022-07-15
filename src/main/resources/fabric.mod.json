@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "macrmomod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Macro Mod",
+  "description": "Allows you to create custom macros that are ran when you press a key.",
   "authors": [
-    "Me!"
+    "Justin Noble"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/justinnobledev",
+    "sources": "https://github.com/justinnobledev/macromod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "accessWidener" : "macromod.accesswidener",
+  "license": "GPLv3",
+  "icon": "assets/macromod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.github.justinnobledev.macromod.MacroMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "macromod.mixins.json"
   ],
 
   "depends": {
@@ -33,6 +34,5 @@
     "java": ">=17"
   },
   "suggests": {
-    "another-mod": "*"
   }
 }
