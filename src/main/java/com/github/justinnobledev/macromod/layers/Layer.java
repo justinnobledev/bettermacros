@@ -23,7 +23,11 @@ public class Layer {
     }
 
     public boolean addMacro(String cmd, int key, InputUtil.Type type){
-        return this.macros.add(new Macro(cmd, key, type));
+        Optional<Macro> macro = getMacro(key);
+        if(macro.isPresent()) {
+            macro.get().setCommand(cmd);
+            return true;
+        }else return this.macros.add(new Macro(cmd, key, type));
     }
 
     public Optional<Macro> getMacro(int key){

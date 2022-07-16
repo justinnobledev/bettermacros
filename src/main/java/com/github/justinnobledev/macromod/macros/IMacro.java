@@ -13,4 +13,6 @@ public interface IMacro {
     int getModifier();
 
     InputUtil.Type getType();
+
+    void setCommand(String cmd);
 }

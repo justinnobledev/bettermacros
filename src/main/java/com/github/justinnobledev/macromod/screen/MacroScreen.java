@@ -1,7 +1,6 @@
 package com.github.justinnobledev.macromod.screen;
 
 import com.github.justinnobledev.macromod.MacroMod;
-import com.github.justinnobledev.macromod.macros.IMacro;
 import com.github.justinnobledev.macromod.macros.Macro;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -458,7 +457,7 @@ public final class MacroScreen extends Screen {
     }
 
     public void createMacro(int key, boolean mouse){
-        MinecraftClient.getInstance().setScreen(new NewMacroScreen(Text.of("Macros"), key));
+        MinecraftClient.getInstance().setScreen(new NewMacroScreen(Text.of("Macros"), key, mouse));
     }
 
     @Override

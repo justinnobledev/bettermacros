@@ -35,11 +35,13 @@ public class Macro implements IMacro {
 
     @Override
     public void execute(ClientPlayerEntity player) {
-        player.sendChatMessage(this.cmd);
+        for(String command : this.cmd.split("\\|"))
+            player.sendChatMessage(command.trim());
     }
 
     @Override
     public boolean isKeyPressed(long hndl, int key) {
+        MacroMod.LOGGER.info(String.format("Looking up key %d with type %s", key, type.toString()));
         if(type == InputUtil.Type.MOUSE){
             return GLFW.glfwGetMouseButton(hndl, key) == 1;
         }else {
@@ -65,5 +67,10 @@ public class Macro implements IMacro {
     @Override
     public InputUtil.Type getType() {
         return this.type;
+    }
+
+    @Override
+    public void setCommand(String cmd) {
+        this.cmd = cmd;
     }
 }
