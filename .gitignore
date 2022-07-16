@@ -1,33 +1,18 @@
-# gradle
-
-.gradle/
 build/
-out/
-classes/
-
-# eclipse
-
-*.launch
-
-# idea
-
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# vscode
-
-.settings/
-.vscode/
-bin/
-.classpath
-.project
-
-# macos
-
-*.DS_Store
-
-# fabric
-
 run/
+.idea/
+*.class
+*.lock
+*.bin
+.gradle/7.4/dependencies-accessors/gc.properties
+.gradle/7.4/gc.properties
+.gradle/buildOutputCleanup/cache.properties
+.gradle/file-system.probe
+.gradle/vcs-1/gc.properties
+*.xml
+*.txt
+*.tsrg
+*.json
+*.zip
+*.srg
+*.jar
