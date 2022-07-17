@@ -1,6 +1,7 @@
 package com.github.justinnobledev.macromod.macros;
 
 import com.github.justinnobledev.macromod.MacroMod;
+import com.github.justinnobledev.macromod.placeholder.Placeholder;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -36,7 +37,7 @@ public class Macro implements IMacro {
     @Override
     public void execute(ClientPlayerEntity player) {
         for(String command : this.cmd.split("\\|"))
-            player.sendChatMessage(command.trim());
+            player.sendChatMessage(Placeholder.parsePlaceholders(command.trim()));
     }
 
     @Override
