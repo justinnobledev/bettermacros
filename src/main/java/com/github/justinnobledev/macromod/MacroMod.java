@@ -34,6 +34,7 @@ public class MacroMod implements ModInitializer {
 
 	public void Save(){
 		if(!CheckFile()){
+			
 			return;
 		}
 		try {
