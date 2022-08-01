@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "macrmomod",
+  "id": "bettermacros",
   "version": "${version}",
 
-  "name": "Macro Mod",
+  "name": "Better Macros",
   "description": "Allows you to create custom macros that are ran when you press a key.",
   "authors": [
     "Justin Noble"
@@ -13,9 +13,9 @@
     "sources": "https://github.com/justinnobledev/macromod"
   },
 
-  "accessWidener" : "macromod.accesswidener",
+  "accessWidener" : "bettermacros.accesswidener",
   "license": "GPLv3",
-  "icon": "assets/macromod/icon.png",
+  "icon": "assets/bettermacros/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -24,7 +24,7 @@
     ]
   },
   "mixins": [
-    "macromod.mixins.json"
+    "bettermacros.mixins.json"
   ],
 
   "depends": {

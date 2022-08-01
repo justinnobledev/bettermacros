@@ -3,16 +3,12 @@ package com.github.justinnobledev.macromod;
 import com.github.justinnobledev.macromod.layers.Layer;
 import com.github.justinnobledev.macromod.layers.LayerManager;
 import com.github.justinnobledev.macromod.macros.IMacro;
-import com.github.justinnobledev.macromod.macros.Macro;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.GameMenuScreen;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.util.InputUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +18,7 @@ public class MacroMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger("macromod");
+	public static final Logger LOGGER = LoggerFactory.getLogger("bettermacros");
 	private LayerManager layermanager;
 	private static MacroMod mod;
 
@@ -33,9 +29,7 @@ public class MacroMod implements ModInitializer {
 	}
 
 	public void Save(){
-		if(!CheckFile()){
-
-			
+		if(CheckFile()){
 			return;
 		}
 		try {
@@ -51,7 +45,7 @@ public class MacroMod implements ModInitializer {
 	}
 
 	public void Load(){
-		if(!CheckFile()){
+		if(CheckFile()){
 			return;
 		}
 		try {
@@ -76,13 +70,10 @@ public class MacroMod implements ModInitializer {
 			if (jsonFile.createNewFile()) {
 				LOGGER.info("Config File Created");
 			}
-			if (jsonFile.exists()) {
-				return true;
-			}
-			return false;
+			return !jsonFile.exists();
 		}catch(IOException e){
 			e.printStackTrace();
-			return false;
+			return true;
 		}
 	}
 
@@ -91,8 +82,6 @@ public class MacroMod implements ModInitializer {
 		mod = this;
 		LOGGER.info("Hello Fabric world!");
 		this.Load();
-//		this.layermanager = new LayerManager();
-//		this.layermanager.getCurrentLayer().addMacro("test", InputUtil.GLFW_KEY_W, InputUtil.Type.KEYSYM);
 		ClientTickEvents.START_WORLD_TICK.register(listener -> {
 			if(MinecraftClient.getInstance().currentScreen != null)
 				return;
