@@ -39,19 +39,7 @@ public class EventHandler {
             Minecraft.getInstance().setScreen(new MacroScreen(new TextComponent("Macros"), mod));
         });
     }
-/*
-    @SubscribeEvent
-    public void clientTick(TickEvent.ClientTickEvent e){
-        final LocalPlayer player = Minecraft.getInstance().player;
-        // check if we are in-game
-        Minecraft.getInstance().
-        if (player == null) {
-            inGame=false;
-            return;
-        }
-        inGame=true;
-    }
- */
+
     @SubscribeEvent
     public void addMacroButton(final InitScreenEvent event)
     {
@@ -108,6 +96,10 @@ public class EventHandler {
         if(message.contains("|")){
             String[] messages = message.split("\\|");
             for(String str : messages){
+                if(str.contains(".")){
+                    int index = message.indexOf(".");
+                    str = str.substring(0,index);
+                }
                 Minecraft.getInstance().player.chat(str);
             }
             return;

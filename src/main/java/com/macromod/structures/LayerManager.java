@@ -8,7 +8,6 @@ import java.util.List;
 public class LayerManager {
 
     private ArrayList<Layer> layers;
-    //private Layer currentLayer;
     private int currentLayerIndex;
     private transient MacroMod mod;
 
@@ -26,10 +25,8 @@ public class LayerManager {
     public void nextLayer(){
         if(layers.size() <= currentLayerIndex +1){
             currentLayerIndex=0;
-            //currentLayer=layers.get(0);
         }else {
             currentLayerIndex++;
-            //currentLayer = layers.get(currentLayerIndex);
         }
         mod.Save();
     }

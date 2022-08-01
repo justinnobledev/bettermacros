@@ -31,21 +31,4 @@ public class Layer {
     public String getCommand(int keycode){
         return macros.getOrDefault(keycode,"");
     }
-
-    /*public JSONObject layerToJson(){
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("layer",layerName);
-        JSONArray jsonArray = new JSONArray();
-
-        for(Map.Entry<Integer,String> entry: macros.entrySet()){
-            int keycode = entry.getKey();
-            String command = entry.getValue();
-            JSONObject jsonObject2 = new JSONObject();
-            jsonObject2.put("keyCode",keycode);
-            jsonObject2.put("cmd",command);
-            jsonArray.put(jsonObject2);
-        }
-        jsonObject.put("macros",jsonArray);
-        return jsonObject;
-    }*/
 }

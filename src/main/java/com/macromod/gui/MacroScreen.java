@@ -27,8 +27,6 @@ public final class MacroScreen extends Screen {
         this.mod = mod;
         macroButtons = new ArrayList<>();
         keys = new Hashtable();
-        MinecraftForge.EVENT_BUS.register(this);
-
     }
 
     @Override
